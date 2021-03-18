@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.card {
+    /* width: 100rem; */
+}
+
+.searchItem {
+    width: 60%;
+    border-radius: 10px;
+    border: solid 1px grey;
+    margin: 0 auto 10px;
+    padding: .6rem;
+    letter-spacing: .03rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    text-transform: capitalize;
+    margin-bottom: 1em;
+}
+
+.searchItem:hover,
+:focus {
+    color: white;
+    background-color: firebrick;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+.item1 {
+    margin-bottom: 5rem;
+}
+
+
+/* .container,
+main {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+} */
+
+.fiveDayForecast {
+    /* margin: 0 auto; */
+}
+
+.item2 {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.card-deck {
+    width: 800vw;
+    margin: 0;
+}
+
+.second-header {
+    text-align: center;
+}
+
+.search-history {
+    position: absolute;
+    margin-left: 5rem;
+    width: 30%;
+    top: -230px;
+    right: 500px;
+    text-align: center;
+    /* border: 10px solid tan; */
+}
+
+#searches {
+    /* border: 10px solid red; */
+    display: grid;
+    grid-template-columns: 2 1fr;
+    width: 20em;
+}
+
+#searches li {
+    list-style-type: none;
+}
+
+.btn {
+    margin-left: 2rem;
+}
+
+.currentCity {
+    width: 30%;
+    margin: 0 auto 2rem;
+    /* border: 10px solid orangered; */
+}
+
+.card-deck {
+    /* border: 10px solid greenyellow; */
+    width: 100%;
+}
+
+.bi {
+    margin-left: .09em;
+    font-size: 1.4em;
+}
