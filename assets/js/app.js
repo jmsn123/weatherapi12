@@ -30,7 +30,7 @@ function saveItems(item) {
 }
 
 function grabUv(lat, lon) {
-    return fetch(`http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apikey}
+    return fetch(`https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apikey}
     `)
 }
 
