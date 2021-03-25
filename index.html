@@ -15,113 +15,126 @@
 
 <body>
 
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <header class="main-header">
 
-                        <h2>Weather App</h2>
-                        <section class="search-input">
-                            <form class="form-inline" id="city-form">
-                                <div class="form-group">
-                                    <input autocomplete="off" type="cityName" class="form-control" id="city" placeholder="Enter city" name="city">
-                                </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </form>
-                        </section>
-                    </header>
-                </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <header class="main-header">
+
+                    <h2>Weather App</h2>
+                    <section class="search-input">
+                        <form class="form-inline" id="city-form">
+                            <div class="form-group">
+                                <input autocomplete="off" type="cityName" class="form-control" id="city" placeholder="Enter city" name="city">
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    </section>
+                </header>
             </div>
-
-
-
-            <div class="item1 row">
-                <div class="col">
-                    <div class="search-history">
-                        <h2 class="search-title"> Searches</h2>
-                        <ul class="list-group" id="searches">
-                        </ul>
-                        <button class="btn clear-btn"> Clear List</button>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class=" currentCity text-center">
-                        <h1 class="name"></h1>
-                        <h1 class="icon"></h1>
-                        <h1 class="temp"></h1>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="item2">
-
-
-
-
-                <section class="fiveDayForecast hide">
-
-                    <div class="row">
-                        <h1 class="second-header ">Five Day</h1>
-                        <div class="col">
-                            <div class="card-deck ">
-                                <div class="card ">
-                                    <div class="card-body text-center">
-
-                                        <ul id="details"></ul>
-                                    </div>
-
-                                </div>
-                                <div class="card ">
-                                    <div class="card-body text-center">
-                                        <ul id="details"></ul>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-body text-center">
-
-                                    <ul id="details"></ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card ">
-                                <div class="card-body text-center">
-
-                                    <ul id="details"></ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card ">
-                                <div class="card-body text-center">
-
-                                    <ul id="details">
-
-
-                                    </ul>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-
-
         </div>
+
+
+
+        <div class=" row">
+            <div class="col-md-6">
+                <div class="search-history">
+                    <h2 class="search-title"> Searches</h2>
+                    <ul class="list-group" id="searches">
+                    </ul>
+                    <button class="btn clear-btn"> Clear List</button>
+                </div>
+            </div>
+
+            <ul class=" currentCity text-center">
+                <li>
+                    <p class="name"></p>
+                </li>
+                <li>
+                    <p class="icon"></p>
+                </li>
+                <li>
+                    temp
+                    <p class="temp"></p>
+                </li>
+                <li>
+
+                    <p class="date"></p>
+                </li>
+                <li>
+                    wind
+                    <p class="wind"></p>
+                </li>
+                <li>
+                    uv
+                    <p class="uv"></p>
+                </li>
+
+
+            </ul>
         </div>
+
+        <section class="fiveDayForecast hide">
+
+            <div class="container-fluid">
+                <h1 class="second-header">Five Day</h1>
+                <div class="card-deck">
+
+                    <div class="card ">
+                        <div class="card-body text-center">
+
+                            <ul id="details"></ul>
+                        </div>
+
+                    </div>
+                    <div class="card ">
+                        <div class="card-body text-center">
+                            <ul id="details"></ul>
+
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body text-center">
+
+                            <ul id="details"></ul>
+                        </div>
+                    </div>
+
+
+                    <div class="card ">
+                        <div class="card-body text-center">
+
+                            <ul id="details"></ul>
+                        </div>
+                    </div>
+
+
+                    <div class="card ">
+                        <div class="card-body text-center">
+
+                            <ul id="details">
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+    </div>
+
+
+
+
 
 
     </main>

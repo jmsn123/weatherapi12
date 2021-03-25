@@ -10,29 +10,30 @@ var cardBody = document.querySelectorAll(".card-body");
 var cityInput = document.getElementById("city");
 var cityForm = document.getElementById("city-form");
 var deck = document.querySelector(".hide");
-// const icons = document.querySelector("icon");
-// const temp = document.querySelector("temp")
 const iconImg = document.createElement("img");
 const listUl = document.querySelector(".list-group");
 const desc = document.getElementById("description");
 const high = document.getElementById("high");
 const low = document.getElementById("low");
 const searchList = document.getElementById("searches");
-// iconImg.src = "#";
-// const locationHistory = [];
-console.log(locationHistory);
+const fiveDayForecast = document.querySelector(".fiveDayForecast")
+const windSpeed = document.querySelector(".wind")
+const uv = document.querySelector(".uv")
+const current = document.querySelector(".currentCity")
+var date = new Date();
+var today = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+
+const time = document.querySelector(".date")
 
 function saveItems(item) {
     localStorage.setItem("location", JSON.stringify(item));
 }
 
-// function getItems() {
-//     return JSON.parse(localStorage.getItem("location"));
-// }
-document.addEventListener("DOMContentLoaded", (e) => {
-    e.preventDefault();
-    historyList();
-});
+function grabUv(lat, lon) {
+    return fetch(`http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apikey}
+    `)
+}
+
 
 function historyList() {
     let items = locationHistory;
@@ -49,9 +50,6 @@ function historyList() {
                 item.addEventListener("click", (e) => {
                     e.stopImmediatePropagation();
 
-                    const removed = locationHistory.indexOf(
-                        item.parentElement.textContent
-                    );
                     const updated = locationHistory.slice(removed);
                     saveItems(updated);
                     item.parentElement.remove();
@@ -78,19 +76,18 @@ function fiveDay(value, cardBody) {
         .then((response) => response.json())
         .then((data) => {
             const temps = document.createElement("p");
-            // deck.innerHTML = " ";
 
             deck.classList.remove("hide");
             deck.classList.add("show");
             const { list, city } = data;
             const status = data.cod;
             const count = list.length;
+            console.log(data);
             for (let i = 0; i < count; i++) {
                 const { main, weather, wind } = list[i];
                 console.log(list[i]);
                 const iconImg = document.createElement("img");
                 const card = cardBody[i];
-                // prefroms cleanup .innerHTML also will work
                 card.innerHTML = "";
                 const forecast = document.createElement("li");
                 const sunrise = document.createElement("li");
@@ -104,8 +101,7 @@ function fiveDay(value, cardBody) {
                     .toTimeString()
                     .split(" ")
                     .slice(0, 1);
-                // items = date.toString();
-                // items.toStr.split(" ")
+
                 sunrise.innerText = `Sunrise: ${rise}`;
                 sunset.innerText = `Sunset: ${set}`;
                 sunrise.style.listStyleType = "none";
@@ -116,10 +112,7 @@ function fiveDay(value, cardBody) {
                 const icon = `http://openweathermap.org/img/w/${weather[0].icon}.png`;
                 iconImg.setAttribute("src", icon);
 
-                // li.textContent = updateLocal().split;
-                // for (let i = 0; i < split.length; i++) {
-                //     console.log(split[i]);
-                // }
+
 
                 var temp = Math.floor(main.temp);
 
@@ -135,17 +128,27 @@ function fiveDay(value, cardBody) {
 
 function currentWeather(location) {
     var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apikey}&units=imperial`;
-
+    current.style.display = "block"
     var response = fetch(apiUrl);
     response
         .then((response) => response.json())
         .then((data) => {
             // grab info from the data object
-            const { weather, clouds, main, name, lat, lon } = data;
-            const newlocation = document.createElement("li");
+            const { weather, clouds, main, name, coord, wind } = data;
+            console.log(data);
+            const getuv = grabUv(coord.lat, coord.lon)
+            getuv.then(data => {
+                data.json().then(data => {
+                    // console.log(data);
+                    uv.textContent = data.value
+                })
+            })
 
-            listUl.append(newlocation);
+            const newItem = document.createElement("li");
+            time.textContent = today
+            listUl.append(newItem);
             value = " ";
+            windSpeed.textContent = wind.speed
             const icon = `http://openweathermap.org/img/w/${weather[0].icon}.png`;
             cityName.textContent = name;
             iconImg.src = icon;
@@ -157,17 +160,10 @@ function currentWeather(location) {
     return response;
 }
 
-// (locationHistory[locationHistory.length - 1] === value &&
-//     locationHistory.length > 4) ||
-// value === "";
 cityForm.addEventListener("submit", function(e) {
     e.preventDefault();
     var value = cityInput.value;
-    console.log(
-        locationHistory[locationHistory.length - 1] === value ||
-        value === "" ||
-        locationHistory.length > 4
-    );
+
     if (
         locationHistory[locationHistory.length - 1] === value ||
         value === "" ||
@@ -177,17 +173,19 @@ cityForm.addEventListener("submit", function(e) {
     } else {
         locationHistory.push(value);
         saveItems(locationHistory);
-        currentWeather(value).then((data) => {
-            data.ok;
-        });
+        current.style.display = "block"
+
         fiveDay(value, cardBody);
         historyList();
     }
 });
-
 clearbtn.addEventListener("click", (e) => {
     e.preventDefault();
     locationHistory = [];
     localStorage.setItem("location", JSON.stringify(locationHistory));
+    historyList();
+});
+document.addEventListener("DOMContentLoaded", (e) => {
+    e.preventDefault();
     historyList();
 });
