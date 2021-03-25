@@ -163,7 +163,7 @@ function currentWeather(location) {
 cityForm.addEventListener("submit", function(e) {
     e.preventDefault();
     var value = cityInput.value;
-
+    currentWeather(value)
     if (
         locationHistory[locationHistory.length - 1] === value ||
         value === "" ||
