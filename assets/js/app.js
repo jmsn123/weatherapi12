@@ -149,7 +149,7 @@ function currentWeather(location) {
             listUl.append(newItem);
             value = " ";
             windSpeed.textContent = wind.speed
-            const icon = `http://openweathermap.org/img/w/${weather[0].icon}.png`;
+            const icon = `https://openweathermap.org/img/w/${weather[0].icon}.png`;
             cityName.textContent = name;
             iconImg.src = icon;
             var cityTemp = Math.floor(main.temp);
