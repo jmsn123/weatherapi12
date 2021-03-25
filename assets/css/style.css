@@ -71,18 +71,10 @@ header {
     margin-bottom: 5rem;
 }
 
-
-/* .container,
-main {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-} */
-
 .fiveDayForecast {
-    /* width: 100vw; */
-    /* margin: 0 auto; */
-    /* border: 10px solid purple; */
+    width: 100vw;
+    margin: 0 auto;
+    border: 10px solid purple;
 }
 
 .card-deck {
@@ -91,7 +83,6 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: column; */
 }
 
 .second-header {
@@ -105,11 +96,9 @@ main {
     top: -170px;
     right: 500px;
     text-align: center;
-    /* border: 10px solid tan; */
 }
 
 #searches {
-    /* border: 10px solid red; */
     display: grid;
     grid-template-columns: 2 1fr;
     width: 20em;
@@ -127,12 +116,10 @@ main {
     width: 20%;
     margin: 0 auto 2rem;
     display: none;
-    /* border: 10px solid orangered; */
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card-deck {
-    /* border: 10px solid greenyellow; */
     display: flex;
     justify-content: center;
     align-items: center;
