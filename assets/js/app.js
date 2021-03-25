@@ -163,7 +163,6 @@ function currentWeather(location) {
 cityForm.addEventListener("submit", function(e) {
     e.preventDefault();
     var value = cityInput.value;
-    currentWeather(value)
     if (
         locationHistory[locationHistory.length - 1] === value ||
         value === "" ||
@@ -174,6 +173,7 @@ cityForm.addEventListener("submit", function(e) {
         locationHistory.push(value);
         saveItems(locationHistory);
         current.style.display = "block"
+        currentWeather(value)
 
         fiveDay(value, cardBody);
         historyList();
