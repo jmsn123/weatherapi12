@@ -109,7 +109,7 @@ function fiveDay(value, cardBody) {
 
                 forecast.style.listStyleType = "none";
                 forecast.innerText = weather[0].description;
-                const icon = `http://openweathermap.org/img/w/${weather[0].icon}.png`;
+                const icon = `https://openweathermap.org/img/w/${weather[0].icon}.png`;
                 iconImg.setAttribute("src", icon);
 
 
