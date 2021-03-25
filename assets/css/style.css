@@ -74,7 +74,7 @@ header {
 .fiveDayForecast {
     width: 100vw;
     margin: 0 auto 20rem auto;
-    border: 10px solid purple;
+    /* border: 10px solid purple; */
 }
 
 .card-deck {
