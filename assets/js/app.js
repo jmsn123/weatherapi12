@@ -163,17 +163,14 @@ function currentWeather(location) {
 cityForm.addEventListener("submit", function(e) {
     e.preventDefault();
     var value = cityInput.value;
-    if (
-        locationHistory[locationHistory.length - 1] === value ||
-        value === "" ||
-        locationHistory.length > 4
-    ) {
+    if (locationHistory[locationHistory.length - 1] === value || value === "" || locationHistory.length > 4) {
         console.log("OUR LAST VALUE INPUTED IS EQUAL TO THE VALUE WE INPUT ");
     } else {
+        currentWeather(value)
         locationHistory.push(value);
         saveItems(locationHistory);
         current.style.display = "block"
-        currentWeather(value)
+
 
         fiveDay(value, cardBody);
         historyList();

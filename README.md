@@ -6,3 +6,7 @@
     -fetch
     -css 
     -html
+
+## Todo
+
+UI/UX MORE appealing 
